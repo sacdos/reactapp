@@ -12,7 +12,6 @@ interface AppProps {
 }
 
 const FormInput: React.FC<AppProps> = ({ label, ...otherProps }) => {
-	console.debug(otherProps.value.length);
 	return (
 		<Group>
 			<Input {...otherProps} />
