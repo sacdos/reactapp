@@ -7,7 +7,7 @@ import { DropdownContext } from '../../contexts/dropdown.context';
 
 const Checkout = () => {
 	const { setOpen, cartItems, cartTotal } = useContext(DropdownContext);
-	useEffect(() => setOpen(false), [setOpen]);
+	useEffect(() => setOpen(false), []);
 	return (
 		<div className="checkout-container">
 			<div className="checkout-header">
