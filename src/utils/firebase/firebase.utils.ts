@@ -21,10 +21,7 @@ import {
 	query, // Objet pour requêter firestore
 	getDocs, // Permet de récupérer de façon asynchrone le résultat (snapshot) d'une query ci-dessus
 } from 'firebase/firestore';
-import {
-	Categories,
-	CategoriesCollection,
-} from '../../contexts/categories.context';
+import { CategoriesCollection } from '../../store/categories/category.types';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDeJL-AdeAdNzoRG2rJc4OH0hW1KJqFvjw',
@@ -81,15 +78,7 @@ export const getCategoriesAndDocuments = async () => {
 	// Crée un snapshot de la collection categories
 	const querySnapshot = await getDocs(q);
 	// Création d'une structure à partir de la collection de documents récupérée ci-dessus
-	const categoryMap = querySnapshot.docs.reduce<Categories>(
-		(acc, docSnapshot) => {
-			const { title, items } = docSnapshot.data();
-			acc[title.toLowerCase()] = items;
-			return acc;
-		},
-		{}
-	);
-	return categoryMap;
+	return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (

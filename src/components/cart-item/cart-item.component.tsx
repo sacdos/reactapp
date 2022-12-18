@@ -1,11 +1,10 @@
+import { ItemInCart } from '../../store/cart/cart.types';
 import {
 	CartItemContainer,
 	CartImage,
 	ItemDetails,
 	Name,
 } from './cart-item.styles';
-
-import { ItemInCart } from '../../contexts/dropdown.context';
 
 interface AppProps<T> {
 	cartItem: T;

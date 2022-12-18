@@ -5,7 +5,7 @@ import {
 	Title,
 	Preview,
 } from './category-preview.styles';
-import { Product } from '../../contexts/categories.context';
+import { Product } from '../../store/categories/category.types';
 import ProductCard from '../product-card/product-card.component';
 
 interface AppProps<T> {
